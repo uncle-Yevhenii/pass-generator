@@ -4,18 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="src/index.css" />
+        <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
         <title>Password Generator</title>
         <script type="module">
             import { startGeneratePassword } from './dist/src/index.js';
             startGeneratePassword({
                 passwordOutput: getById('password-output'),
-                passwordContainer: getById('password-container'),
+                lengthOutput: getById('length-output'),
                 checkUppercase: getById('check-uppercase'),
                 checkLowercase: getById('check-lowercase'),
                 checkSymbol: getById('check-symbol'),
                 checkNumber: getById('check-number'),
-                buttonGenerate: getById('button-generate'),
                 checkLength: getById('check-length'),
+                buttonGenerate: getById('button-generate'),
+                buttonCopy: getById('button-copy'),
             });
 
             function getById(id) {
@@ -25,33 +27,121 @@
             }
         </script>
     </head>
-    <body class="container">
-        <h1>Password Generator</h1>
-        <p class="password-output" id="password-output"></p>
-        <form id="password-container" class="password-form">
-            <input id="check-length" type="range" min="6" max="32" />
+    <body>
+        <div class="container">
+            <p class="title">Password Generator</p>
 
-            <label for="check-uppercase">
-                <input id="check-uppercase" type="checkbox" checked />
-                Use uppercase
-            </label>
+            <div class="password-container">
+                <p class="password-output" id="password-output">&oH2++Ao3S</p>
+                <button class="button-copy" id="button-copy">
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <g clip-path="url(#clip0_5202_25)">
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M7.5 6.75C7.08579 6.75 6.75 7.08579 6.75 7.5V15C6.75 15.4142 7.08579 15.75 7.5 15.75H15C15.4142 15.75 15.75 15.4142 15.75 15V7.5C15.75 7.08579 15.4142 6.75 15 6.75H7.5ZM5.25 7.5C5.25 6.25736 6.25736 5.25 7.5 5.25H15C16.2426 5.25 17.25 6.25736 17.25 7.5V15C17.25 16.2426 16.2426 17.25 15 17.25H7.5C6.25736 17.25 5.25 16.2426 5.25 15V7.5Z"
+                                fill="#1E293B"
+                            />
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M3 2.25C2.58921 2.25 2.25 2.58921 2.25 3V10.5C2.25 10.9108 2.58921 11.25 3 11.25C3.41421 11.25 3.75 11.5858 3.75 12C3.75 12.4142 3.41421 12.75 3 12.75C1.76079 12.75 0.75 11.7392 0.75 10.5V3C0.75 1.76079 1.76079 0.75 3 0.75H10.5C11.7392 0.75 12.75 1.76079 12.75 3C12.75 3.41421 12.4142 3.75 12 3.75C11.5858 3.75 11.25 3.41421 11.25 3C11.25 2.58921 10.9108 2.25 10.5 2.25H3Z"
+                                fill="#1E293B"
+                            />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_5202_25">
+                                <rect width="18" height="18" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+                <button class="button-generate" id="button-generate">
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <g clip-path="url(#clip0_5202_29)">
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M3 8.25C2.58579 8.25 2.25 8.58579 2.25 9V15C2.25 15.4142 2.58579 15.75 3 15.75H9C9.41421 15.75 9.75 15.4142 9.75 15V9C9.75 8.58579 9.41421 8.25 9 8.25H3ZM0.75 9C0.75 7.75736 1.75736 6.75 3 6.75H9C10.2426 6.75 11.25 7.75736 11.25 9V15C11.25 16.2426 10.2426 17.25 9 17.25H3C1.75736 17.25 0.75 16.2426 0.75 15V9Z"
+                                fill="#1E293B"
+                            />
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M9.56277 1.37798C10.0092 0.975474 10.5889 0.752701 11.19 0.752701C11.7911 0.752701 12.3708 0.975474 12.8172 1.37798C12.8253 1.38528 12.8333 1.39276 12.841 1.4004L16.591 5.0904C16.6017 5.10088 16.612 5.11167 16.622 5.12276C17.0245 5.56917 17.2473 6.14892 17.2473 6.74999C17.2473 7.35107 17.0245 7.93082 16.622 8.37722C16.6134 8.38682 16.6045 8.39619 16.5953 8.40532L13.9703 11.0303C13.6774 11.3232 13.2026 11.3232 12.9097 11.0303C12.6168 10.7374 12.6168 10.2626 12.9097 9.96966L15.519 7.36038C15.6661 7.19127 15.7473 6.97452 15.7473 6.74999C15.7473 6.52633 15.6667 6.31039 15.5206 6.14156L11.8023 2.48274C11.6329 2.33454 11.4154 2.2527 11.19 2.2527C10.9655 2.2527 10.7487 2.33392 10.5796 2.48104L8.03033 5.03032C7.73744 5.32322 7.26256 5.32322 6.96967 5.03032C6.67678 4.73743 6.67678 4.26256 6.96967 3.96966L9.53467 1.40466C9.5438 1.39553 9.55317 1.38663 9.56277 1.37798Z"
+                                fill="#1E293B"
+                            />
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M3.75 13.5C3.75 13.0858 4.08579 12.75 4.5 12.75H4.5075C4.92171 12.75 5.2575 13.0858 5.2575 13.5C5.2575 13.9142 4.92171 14.25 4.5075 14.25H4.5C4.08579 14.25 3.75 13.9142 3.75 13.5Z"
+                                fill="#1E293B"
+                            />
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M6.75 10.5C6.75 10.0858 7.08579 9.75 7.5 9.75H7.5075C7.92171 9.75 8.2575 10.0858 8.2575 10.5C8.2575 10.9142 7.92171 11.25 7.5075 11.25H7.5C7.08579 11.25 6.75 10.9142 6.75 10.5Z"
+                                fill="#1E293B"
+                            />
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M10.5 4.5C10.5 4.08579 10.8358 3.75 11.25 3.75H11.2575C11.6717 3.75 12.0075 4.08579 12.0075 4.5C12.0075 4.91421 11.6717 5.25 11.2575 5.25H11.25C10.8358 5.25 10.5 4.91421 10.5 4.5Z"
+                                fill="#1E293B"
+                            />
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M12.75 6.75C12.75 6.33579 13.0858 6 13.5 6H13.5075C13.9217 6 14.2575 6.33579 14.2575 6.75C14.2575 7.16421 13.9217 7.5 13.5075 7.5H13.5C13.0858 7.5 12.75 7.16421 12.75 6.75Z"
+                                fill="#1E293B"
+                            />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_5202_29">
+                                <rect width="18" height="18" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+            </div>
 
-            <label for="check-lowercase">
-                <input id="check-lowercase" type="checkbox" checked />
-                Use lowercase
-            </label>
+            <p class="length-title">Password length</p>
 
-            <label for="check-symbol">
-                <input id="check-symbol" type="checkbox" />
-                Use symbols
-            </label>
+            <div class="length-container">
+                <p class="length-output" id="length-output">23</p>
+                <input class="length-range" id="check-length" type="range" max="32" min="6" />
+            </div>
 
-            <label for="check-number">
-                <input id="check-number" type="checkbox" />
-                Use numbers
-            </label>
-
-            <button id="button-generate" type="submit">Generate Password</button>
-        </form>
+            <div class="checkbox-container">
+                <label class="checkbox-label" for="check-uppercase">
+                    <input class="checkbox-input" id="check-uppercase" type="checkbox" checked />
+                    <span>Capital letters</span>
+                </label>
+                <label class="checkbox-label" for="check-lowercase">
+                    <input class="checkbox-input" id="check-lowercase" type="checkbox" checked />
+                    <span>Small letters</span>
+                </label>
+                <label class="checkbox-label" for="check-number">
+                    <input class="checkbox-input" id="check-number" type="checkbox" />
+                    <span>Numbers</span>
+                </label>
+                <label class="checkbox-label" for="check-symbol">
+                    <input class="checkbox-input" id="check-symbol" type="checkbox" />
+                    <span>Symbols</span>
+                </label>
+            </div>
+        </div>
     </body>
 </html>

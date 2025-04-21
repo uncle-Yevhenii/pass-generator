@@ -5,3 +5,98 @@
     margin: 0;
     padding: 0;
 }
+
+:root {
+    --font-family: 'Inter', sans-serif;
+    --font-weight: 700;
+    --font-size: 12px;
+    --background-color: #e2e8f0;
+    --background-color-container: #f1f5f9;
+    --text-color: #1e293b;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 64px;
+    width: 548px;
+}
+.title {
+    font-size: 8px;
+    text-transform: uppercase;
+    margin-bottom: 8.5px;
+}
+.password-container {
+    position: relative;
+    padding: 16px;
+    width: 420px;
+    background-color: var(--background-color-container);
+    margin-bottom: 21.5px;
+    border-radius: var(--border-radius);
+}
+.password-output {
+    font-size: 16px;
+    line-height: 150%;
+}
+.button-copy,
+.button-generate {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+}
+.button-copy {
+    right: 46px;
+    top: 19px;
+}
+.button-generate {
+    right: 16px;
+    top: 19px;
+}
+.length-title {
+    font-size: 8px;
+    text-transform: uppercase;
+    margin-bottom: 8.5px;
+}
+.length-container {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 40px;
+}
+.length-output {
+    border-radius: var(--border-radius);
+    padding: 12px;
+    width: 43px;
+    background: var(--background-color-container);
+}
+.length-range {
+    width: 100%;
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}

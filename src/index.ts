@@ -3,21 +3,25 @@ const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz';
 const NUMBERS = '0123456789';
 const SYMBOLS = '!@#$%^&*()_+-=[]{}|;:,.<>?';
 
-import { GeneratePasswordProps } from '../type/type';
+import { GeneratePasswordProps } from './type/type';
 
 export function startGeneratePassword({
     passwordOutput,
+    lengthOutput,
     checkLowercase,
-    buttonGenerate,
     checkNumber,
     checkSymbol,
     checkUppercase,
     checkLength,
+    buttonGenerate,
+    buttonCopy,
 }: GeneratePasswordProps) {
     passwordOutput.textContent = 'Configure password generation';
 
     checkLength.addEventListener('change', function (e) {
         e.preventDefault();
+
+        lengthOutput.textContent = checkLength.value;
 
         const { password, error } = generator(
             checkUppercase.checked,
@@ -128,6 +132,12 @@ export function startGeneratePassword({
             buttonGenerate.disabled = true;
             return alert(error);
         }
+    });
+
+    buttonCopy.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (passwordOutput.textContent) navigator.clipboard.writeText(passwordOutput.textContent);
     });
 }
 
