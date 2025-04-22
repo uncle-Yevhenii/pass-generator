@@ -1,0 +1,23 @@
+{
+    "name": "pass-generator",
+    "version": "1.0.0",
+    "description": "Password generator",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uncle-Yevhenii/pass-generator.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/uncle-Yevhenii/pass-generator/issues"
+    },
+    "homepage": "https://github.com/uncle-Yevhenii/pass-generator#readme",
+    "devDependencies": {
+        "typescript": "^5.8.3"
+    }
+}
