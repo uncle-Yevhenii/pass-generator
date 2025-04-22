@@ -1,4 +1,4 @@
-<a href="https://pass-generator-delta.vercel.app/"><img src="./public/preview.png" title="Simple Password generator" alt="Simple Password generator"></a>
+<a href="https://pass-generator-delta.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="./public/preview.png" title="Simple Password generator" alt="Simple Password generator"></a>
 
 # Simple Password generator
 
