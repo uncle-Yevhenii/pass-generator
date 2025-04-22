@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/public/styles.css" />
-        <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+        <link rel="stylesheet" href="./index.css" />
+        <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
         <title>Password Generator</title>
         <script type="module">
-            import { startGeneratePassword } from './dist/src/index.js';
+            import { startGeneratePassword } from '../src/index.js';
             startGeneratePassword({
                 passwordOutput: getById('password-output'),
                 lengthOutput: getById('length-output'),

@@ -4,7 +4,8 @@
     "description": "Password generator",
     "main": "index.js",
     "scripts": {
-        "build": "tsc && cp -r public/ dist/"
+        "clean": "rm -rf dist",
+        "build": "npm run clean && tsc && cp -r public/ dist/"
     },
     "repository": {
         "type": "git",
