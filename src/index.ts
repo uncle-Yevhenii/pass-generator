@@ -34,7 +34,6 @@ export function startGeneratePassword({
         if (password) passwordOutput.textContent = password;
         if (error) {
             passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
             return alert(error);
         }
     });
@@ -53,7 +52,6 @@ export function startGeneratePassword({
         if (password) passwordOutput.textContent = password;
         if (error) {
             passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
             return alert(error);
         }
     });
@@ -72,7 +70,6 @@ export function startGeneratePassword({
         if (password) passwordOutput.textContent = password;
         if (error) {
             passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
             return alert(error);
         }
     });
@@ -91,7 +88,6 @@ export function startGeneratePassword({
         if (password) passwordOutput.textContent = password;
         if (error) {
             passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
             return alert(error);
         }
     });
@@ -110,7 +106,6 @@ export function startGeneratePassword({
         if (password) passwordOutput.textContent = password;
         if (error) {
             passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
             return alert(error);
         }
     });
@@ -129,7 +124,6 @@ export function startGeneratePassword({
         if (password) passwordOutput.textContent = password;
         if (error) {
             passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
             return alert(error);
         }
     });
