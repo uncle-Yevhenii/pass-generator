@@ -18,10 +18,18 @@ export function startGeneratePassword({
 }: GeneratePasswordProps) {
     passwordOutput.textContent = 'Configure password generation';
 
-    checkLength.addEventListener('change', function (e) {
-        e.preventDefault();
+    document.addEventListener('change', function (e) {
+        const target = e.target as HTMLInputElement;
 
-        lengthOutput.textContent = checkLength.value;
+        const isLengthSlider = target.id === 'check-length';
+        const isRelevantCheckbox =
+            target.type === 'checkbox' &&
+            ['check-uppercase', 'check-lowercase', 'check-number', 'check-symbol'].includes(
+                target.id
+            );
+
+        if (!isRelevantCheckbox && !isLengthSlider) return;
+        if (isLengthSlider) lengthOutput.textContent = checkLength.value;
 
         const { password, error } = generator(
             checkUppercase.checked,
@@ -31,7 +39,11 @@ export function startGeneratePassword({
             parseInt(checkLength.value)
         );
 
-        if (password) passwordOutput.textContent = password;
+        if (password) {
+            passwordOutput.textContent = password;
+            buttonGenerate.disabled = false;
+        }
+
         if (error) {
             passwordOutput.textContent = error;
             buttonGenerate.disabled = true;
@@ -39,79 +51,30 @@ export function startGeneratePassword({
         }
     });
 
-    checkUppercase.addEventListener('change', function (e) {
-        e.preventDefault();
+    document.addEventListener('click', function (e) {
+        const target = e.target as HTMLInputElement;
 
-        const { password, error } = generator(
-            checkUppercase.checked,
-            checkLowercase.checked,
-            checkNumber.checked,
-            checkSymbol.checked,
-            parseInt(checkLength.value)
-        );
+        if (target.id === 'button-generate') {
+            e.preventDefault();
+            const { password, error } = generator(
+                checkUppercase.checked,
+                checkLowercase.checked,
+                checkNumber.checked,
+                checkSymbol.checked,
+                parseInt(checkLength.value)
+            );
 
-        if (password) passwordOutput.textContent = password;
-        if (error) {
-            passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
-            return alert(error);
+            if (password) passwordOutput.textContent = password;
+            if (error) {
+                passwordOutput.textContent = error;
+                return alert(error);
+            }
         }
-    });
 
-    checkLowercase.addEventListener('change', function (e) {
-        e.preventDefault();
-
-        const { password, error } = generator(
-            checkUppercase.checked,
-            checkLowercase.checked,
-            checkNumber.checked,
-            checkSymbol.checked,
-            parseInt(checkLength.value)
-        );
-
-        if (password) passwordOutput.textContent = password;
-        if (error) {
-            passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
-            return alert(error);
-        }
-    });
-
-    checkNumber.addEventListener('change', function (e) {
-        e.preventDefault();
-
-        const { password, error } = generator(
-            checkUppercase.checked,
-            checkLowercase.checked,
-            checkNumber.checked,
-            checkSymbol.checked,
-            parseInt(checkLength.value)
-        );
-
-        if (password) passwordOutput.textContent = password;
-        if (error) {
-            passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
-            return alert(error);
-        }
-    });
-
-    checkSymbol.addEventListener('change', function (e) {
-        e.preventDefault();
-
-        const { password, error } = generator(
-            checkUppercase.checked,
-            checkLowercase.checked,
-            checkNumber.checked,
-            checkSymbol.checked,
-            parseInt(checkLength.value)
-        );
-
-        if (password) passwordOutput.textContent = password;
-        if (error) {
-            passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
-            return alert(error);
+        if (target === buttonCopy) {
+            e.preventDefault();
+            if (passwordOutput.textContent)
+                navigator.clipboard.writeText(passwordOutput.textContent);
         }
     });
 
@@ -129,7 +92,6 @@ export function startGeneratePassword({
         if (password) passwordOutput.textContent = password;
         if (error) {
             passwordOutput.textContent = error;
-            buttonGenerate.disabled = true;
             return alert(error);
         }
     });
