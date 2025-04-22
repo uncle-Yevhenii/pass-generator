@@ -6,7 +6,8 @@
     "scripts": {
         "clean": "rm -rf dist",
         "copy": "cp -r public/index.html dist/ && cp -r public/index.css dist/ && cp -r public/favicon.svg dist/",
-        "build": "npm run clean && tsc && npm run copy"
+        "build": "npm run clean && tsc && npm run copy",
+        "start": "npm run build && npx serve dist"
     },
     "repository": {
         "type": "git",
